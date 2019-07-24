@@ -3,13 +3,13 @@ const Router = require('koa-router')
 
 const app = new Koa()
 
-const weixin = require('./router/')
+const auth = require('./router/')
 
-const router = new Router()
+  const router = new Router()
 
-router.user('/',weixin.routes())
-app.user(router)
-
+router.user('/',auth.routes())
+app.user(router.routes())
+ 
 app.listen(3000,()=>{
   console.log('服务已经启动')
 })

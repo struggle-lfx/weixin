@@ -13,7 +13,8 @@ module.exports = {
     } = ctx.query
 
     let orderedStr=[config.token,timestamp,nonce].sort().join('')
-    let mySecret = crypto.createHash('sha1').update
+    //crypto加密
+    let mySecret = crypto.createHash('sha1').update(orderedStr).digest('hex')
     
     if(mySecret === signature){
       ctx.body = echoster
