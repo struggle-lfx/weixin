@@ -1,6 +1,7 @@
-const config = require('../config/auth.config')
+const config = require('../config/auth-config.js')
 
 const crypto = require('crypto')
+//token认证
 module.exports = {
   auth(ctx){
 
@@ -17,9 +18,10 @@ module.exports = {
     let mySecret = crypto.createHash('sha1').update(orderedStr).digest('hex')
     
     if(mySecret === signature){
+      console.log(a)
       ctx.body = echoster
     }else{
-      ctx.body=''
+      ctx.body='错误'
       
     }
      
